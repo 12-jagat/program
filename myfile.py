@@ -13,7 +13,7 @@ st.set_page_config(page_title="Sangam Store Analytics",
                    layout="wide")
 
 # Custom CSS for background theme
-'''custom_css = """
+custom_css = """
 <style>
 /* Background color */
 [data-testid="stAppViewContainer"] {
@@ -360,7 +360,7 @@ td {
 """
 
 # Inject the custom CSS
-st.markdown(custom_css, unsafe_allow_html=True)'''
+st.markdown(custom_css, unsafe_allow_html=True)
 
 # Page Title
 st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")

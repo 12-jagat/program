@@ -12,7 +12,7 @@ st.set_page_config(page_title="Sangam Store Analytics",
                    page_icon=":bar_chart:", 
                    layout="wide")
 
-'''# Custom CSS for background theme
+# Custom CSS for background theme
 custom_css = """
 <style>
 /* Background color */
@@ -69,7 +69,7 @@ button:hover {
 """
 
 # Inject the CSS
-st.markdown(custom_css, unsafe_allow_html=True)'''
+st.markdown(custom_css, unsafe_allow_html=True)
 # Custom CSS for animated background and modern styling
 custom_css = """
 <style>

@@ -13,7 +13,7 @@ st.set_page_config(page_title="Sangam Store Analytics",
                    layout="wide")
 
 # Custom CSS for background theme
-custom_css = """
+'''custom_css = """
 <style>
 /* Background color */
 [data-testid="stAppViewContainer"] {
@@ -363,8 +363,158 @@ td {
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # Page Title
-st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")
+st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")'''
+custom_css = """
+<style>
+/* Background with creamy tone */
+[data-testid="stAppViewContainer"] {
+    background-color: #f9f9f3; /* Soft creamy background */
+    color: #333333; /* Dark text for readability */
+    font-family: 'Lora', serif; /* Elegant serif font */
+}
 
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: #ffffff; /* Clean white background for the sidebar */
+    color: #333333;
+    border-right: 1px solid #e0e0e0; /* Light border */
+    font-family: 'Lora', serif;
+}
+
+/* Titles and Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif; /* Refined serif font */
+    font-weight: 700;
+    color: #2e2e2e; /* Darker text for important headings */
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+/* Sidebar headings */
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3 {
+    color: #2e2e2e; /* Sidebar text color */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    color: #2e2e2e;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+    background: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+/* Input Fields */
+[data-testid="stFileUploadDropzone"], 
+[data-testid="stTextInput"], 
+[data-testid="stDateInput"] {
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    color: #333333;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-family: 'Lora', serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Data Table */
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    margin: 20px auto;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+th {
+    background-color: #f8f8f8;
+    color: #333333;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+/* Charts */
+.plotly-chart {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Download Button */
+[data-testid="stDownloadButton"] > button {
+    background: linear-gradient(to right, #f8f8f8, #f0f0f0);
+    border: none;
+    border-radius: 8px;
+    color: #2e2e2e;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 25px;
+    margin: 12px 0;
+    transition: 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+[data-testid="stDownloadButton"] > button:hover {
+    background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+    transform: scale(1.05);
+}
+
+/* Alerts (Success, Error) */
+[data-testid="stMarkdownContainer"] .stAlert {
+    border-radius: 8px;
+    border-left: 4px solid #cccccc;
+    background: #f8f8f8;
+    color: #2e2e2e;
+    font-family: 'Lora', serif;
+}
+.stAlert p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    background: #f9f9f3;
+}
+::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b0b0b0;
+}
+</style>
+"""
+
+# Inject the custom CSS
+st.markdown(custom_css, unsafe_allow_html=True)
 
 # Function to Load Data
 # Function to Load Data

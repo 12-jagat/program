@@ -360,10 +360,10 @@ td {
 """
 
 # Inject the custom CSS
-st.markdown(custom_css, unsafe_allow_html=True)
+st.markdown(custom_css, unsafe_allow_html=True)'''
 
 # Page Title
-st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")'''
+st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")
 custom_css = """
 <style>
 /* Background with creamy tone */

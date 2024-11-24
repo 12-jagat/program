@@ -191,9 +191,6 @@ if not filtered_df.empty:
     csv = filtered_df.to_csv(index=False).encode("utf-8")
     st.download_button("Download Filtered Data", csv, "Filtered_Data.csv", "text/csv")
 
-    # Additional Interactive Table
-    st.subheader("Summary Table")
-    sample_table = filtered_df[["Region", "State", "City", "Category", "Sales", "Profit", "Quantity"]].head(10)
-    st.dataframe(sample_table.style.background_gradient(cmap="Blues"))
+   
 else:
     st.error("No data to display.")

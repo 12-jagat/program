@@ -87,7 +87,7 @@ def load_data(file):
             if ext in ["csv", "txt"]:
                 return pd.read_csv(file, encoding="ISO-8859-1")
             elif ext in ["xlsx", "xls"]:
-                return pd.read_csv(file, encoding="ISO-8859-1")
+                return pd.read_excel(file)
         else:
             # Fallback to default file in the specified directory
             fallback_file = os.path.join(FALLBACK_DIR, "Sample - Superstore.xlsx")

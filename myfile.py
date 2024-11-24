@@ -222,26 +222,29 @@ st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")
 
 
 # Function to Load Data
+# Function to Load Data
 @st.cache_data
 def load_data(file):
-    """Load data from uploaded file or fallback to local dataset."""
+    """Load data from the user-uploaded file."""
     try:
         if file is not None:
+            # If the user uploads a file, load it based on its extension
             ext = file.name.split('.')[-1]
             if ext in ["csv", "txt"]:
                 return pd.read_csv(file, encoding="ISO-8859-1")
             elif ext in ["xlsx", "xls"]:
                 return pd.read_excel(file)
-        else:
-            # Fallback to default file in the specified directory
-            fallback_file = os.path.join(FALLBACK_DIR, "Sample - Superstore.xlsx")
-            if fallback_file.endswith(".csv"):
-                return pd.read_csv(fallback_file, encoding="ISO-8859-1")
             else:
-                return pd.read_excel(fallback_file)
+                st.error("Unsupported file type. Please upload a CSV or Excel file.")
+                return pd.DataFrame()  # Return an empty DataFrame if the file type is unsupported
+        else:
+            # If no file is uploaded, show an error message
+            st.error("Please upload a dataset.")
+            return pd.DataFrame()  # Return an empty DataFrame if no file is uploaded
     except Exception as e:
         st.error(f"Error loading file: {e}")
         return pd.DataFrame()  # Return an empty DataFrame on failure
+
         
 
 # File Upload Section

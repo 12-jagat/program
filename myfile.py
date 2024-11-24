@@ -12,7 +12,7 @@ st.set_page_config(page_title="Sangam Store Analytics",
                    page_icon=":bar_chart:", 
                    layout="wide")
 
-# Custom CSS for background theme
+'''# Custom CSS for background theme
 custom_css = """
 <style>
 /* Background color */
@@ -69,7 +69,153 @@ button:hover {
 """
 
 # Inject the CSS
+st.markdown(custom_css, unsafe_allow_html=True)'''
+# Custom CSS for animated background and modern styling
+custom_css = """
+<style>
+/* Animated Gradient Background */
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(-45deg, #1e1e2f, #28294d, #3c3c6c, #48487e);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: #2b2b44;
+    color: #e0e0e0;
+    border-right: 2px solid #5050a5;
+}
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3 {
+    color: #f0f0f0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Titles and Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to bottom, #5050a5, #3d3d74);
+    border: 2px solid #6b6bc7;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(to bottom, #6b6bc7, #5050a5);
+    cursor: pointer;
+}
+
+/* Input Fields */
+[data-testid="stFileUploadDropzone"], 
+[data-testid="stTextInput"], 
+[data-testid="stDateInput"] {
+    background-color: #303055;
+    border: 1px solid #5a5a9f;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 14px;
+}
+textarea, input {
+    color: #ffffff;
+}
+
+/* Data Table */
+table {
+    background-color: #2d2d54;
+    border-collapse: collapse;
+    margin: auto;
+    color: #e0e0e0;
+    border: 1px solid #5c5ca8;
+}
+th {
+    background-color: #4a4a87;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+td {
+    padding: 10px;
+    border: 1px solid #5c5ca8;
+}
+
+/* Charts */
+.plotly-chart {
+    background: #2b2b44;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Download Button */
+[data-testid="stDownloadButton"] > button {
+    background: linear-gradient(to right, #6b6bc7, #5050a5);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+[data-testid="stDownloadButton"] > button:hover {
+    background: linear-gradient(to right, #5050a5, #6b6bc7);
+    transform: scale(1.05);
+}
+
+/* Alerts (Success, Error) */
+[data-testid="stMarkdownContainer"] .stAlert {
+    border-radius: 6px;
+    border-left: 4px solid #5050a5;
+    background: #33334d;
+    color: #e0e0e0;
+}
+.stAlert p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    background: #2b2b44;
+}
+::-webkit-scrollbar-thumb {
+    background: #5050a5;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6b6bc7;
+}
+</style>
+"""
+
+# Inject the custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
+
 
 # Page Title
 st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")

@@ -76,8 +76,32 @@ st.title(":bar_chart: Sangam SuperMart Dashboard 🛒")
 
 # Directory for fallback files
 FALLBACK_DIR = r"C:\Users\J.N.PATHAK\Desktop\streamlit"
+@st.cache_data
+def load_data(file):
+    """Load data from uploaded file or fallback to local dataset."""
+    try:
+        if file is not None:
+            ext = file.name.split('.')[-1]
+            if ext in ["csv", "txt"]:
+                return pd.read_csv(file, encoding="ISO-8859-1")
+            elif ext in ["xlsx", "xls"]:
+                return pd.read_excel(file)
+        else:
+            # Fallback to default file in the specified directory
+            fallback_file = os.path.join(FALLBACK_DIR, "Sample - Superstore.xlsx")
+            if os.path.exists(fallback_file):
+                if fallback_file.endswith(".csv"):
+                    return pd.read_csv(fallback_file, encoding="ISO-8859-1")
+                else:
+                    return pd.read_excel(fallback_file)
+            else:
+                st.error(f"Fallback file not found: {fallback_file}")
+                return pd.DataFrame()
+    except Exception as e:
+        st.error(f"Error loading file: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame on failure
 
-# Function to Load Data
+'''# Function to Load Data
 @st.cache_data
 def load_data(file):
     """Load data from uploaded file or fallback to local dataset."""
@@ -98,6 +122,7 @@ def load_data(file):
     except Exception as e:
         st.error(f"Error loading file: {e}")
         return pd.DataFrame()  # Return an empty DataFrame on failure
+        '''
 
 # File Upload Section
 file = st.file_uploader(":file_folder: Upload a dataset", type=["csv", "txt", "xlsx", "xls"])

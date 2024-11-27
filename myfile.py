@@ -333,17 +333,7 @@ if not filtered_df.empty:
     st.subheader("Sales vs. Profit")
     fig7 = px.scatter(filtered_df, x="Sales", y="Profit", size="Quantity", color="Category", hover_data=["Sub-Category"])
     st.plotly_chart(fig7, use_container_width=True)
-
-    # Download Processed Data
-    csv = filtered_df.to_csv(index=False).encode("utf-8")
-    st.download_button("Download Filtered Data", csv, "Filtered_Data.csv", "text/csv")
-
-   
-else:
-    st.error("No data to display.")
-
-# Scatter Plot for Discount vs. Profit
-if not filtered_df.empty:
+#Discount vs profit
     st.subheader("Discount vs. Profit")
     fig8 = px.scatter(
         filtered_df,
@@ -357,6 +347,10 @@ if not filtered_df.empty:
         template="plotly_dark",
     )
     st.plotly_chart(fig8, use_container_width=True)
+
+ # Download Processed Data
+    csv = filtered_df.to_csv(index=False).encode("utf-8")
+    st.download_button("Download Filtered Data", csv, "Filtered_Data.csv", "text/csv")
 else:
-    st.error("No data available to plot Discount vs. Profit.")
+    st.error("No data to display.")
 

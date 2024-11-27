@@ -341,3 +341,22 @@ if not filtered_df.empty:
    
 else:
     st.error("No data to display.")
+
+# Scatter Plot for Discount vs. Profit
+if not filtered_df.empty:
+    st.subheader("Discount vs. Profit")
+    fig8 = px.scatter(
+        filtered_df,
+        x="Discount",
+        y="Profit",
+        size="Quantity",  # Bubble size based on Quantity
+        color="Category",  # Color by Category
+        hover_data=["Sub-Category", "Sales"],  # Additional information on hover
+        labels={"Discount": "Discount (%)", "Profit": "Profit (₹)"},
+        title="Impact of Discount on Profit",
+        template="plotly_dark",
+    )
+    st.plotly_chart(fig8, use_container_width=True)
+else:
+    st.error("No data available to plot Discount vs. Profit.")
+
